@@ -10,9 +10,13 @@
 
     <p th:unless="${cheeses} and ${cheeses.size()}">No cheeses to display.</p>
 
-    <ul>
-        <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
-    </ul>
+    <table>
+        <tr><td>Cheese</td><td>Description</td></tr>
+        <tr th:each="cheese : ${cheeses}">
+            <td th:text="${cheese.key}"></td>
+            <td th:text="${cheese.value}"></td>
+        </tr>
+    </table>
 
 </body>
 </html>

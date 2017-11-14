@@ -3,16 +3,14 @@
 <head th:replace="fragments :: head">
 </head>
 <body>
-
 <h1 th:text="${title}"> Default Title </h1>
 
 <nav th:replace="fragments :: navigation"></nav>
-
 <form method="post">
-    <input type="text" name="cheeseName" />
-    <textarea name="cheeseDesc" value="Enter a description of the cheese..." />
-    <input type="submit" value="Add Cheese" />
+    <ul>
+        <li th:each="cheese : ${cheeses}"><span th:text="${cheese.key}"></span><input type="checkbox" name="toremove" value="${cheese.key}" /></li>
+    </ul>
+    <input type="submit" value="Remove Selected" />
 </form>
-
 </body>
 </html>
